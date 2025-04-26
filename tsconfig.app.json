@@ -6,6 +6,7 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "types": ["vitest", "node"], // ← 여기에 node도 같이 추가
 
     /* Bundler mode */
     "moduleResolution": "bundler",

@@ -1,4 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
+import { describe, it, expect, vi } from "vitest";
+
 import { Button } from "../Button";
 import { BUTTON_SIZE, BUTTON_VARIANT } from "./constants";
 
@@ -9,14 +11,14 @@ describe("Button", () => {
   });
 
   it("calls onClick when clicked", () => {
-    const handleClick = jest.fn();
+    const handleClick = vi.fn();
     render(<Button label="Click Me" onClick={handleClick} />);
     fireEvent.click(screen.getByRole("button", { name: "Click Me" }));
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
 
   it("does not call onClick when disabled", () => {
-    const handleClick = jest.fn();
+    const handleClick = vi.fn();
     render(<Button label="Disabled" onClick={handleClick} disabled />);
     fireEvent.click(screen.getByRole("button", { name: "Disabled" }));
     expect(handleClick).not.toHaveBeenCalled();
