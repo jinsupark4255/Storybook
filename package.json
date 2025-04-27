@@ -1,8 +1,24 @@
 {
-  "name": "storybook",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@service-development/designsys-storybook",
+  "private": false,
+  "version": "1.0.0",
   "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "publishConfig": {
+    "@service-development:registry": "https://sf.apptest.ai/api/v4/projects/342/packages/npm/"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -51,6 +67,7 @@
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.26.1",
     "vite": "^6.3.1",
+    "vite-plugin-dts": "^4.5.3",
     "vitest": "^3.1.2"
   },
   "eslintConfig": {
